@@ -17,8 +17,9 @@ const browser = await puppeteer.launch({
     args: [
         '--no-sandbox', 
         '--disable-setuid-sandbox',
-        '--disable-dev-shm-usage',
-        '--single-process'
+        '--disable-dev-shm-usage', // Isso evita o erro de memória que causa o 502
+        '--single-process',
+        '--no-zygote'
     ] 
 });
 
@@ -59,4 +60,4 @@ const browser = await puppeteer.launch({
     }
 });
 
-app.listen(process.env.PORT || 8081, () => console.log("Servidor Online"));
+app.listen(process.env.PORT || 3000, '0.0.0.0', () => console.log("Servidor rodando!"));
