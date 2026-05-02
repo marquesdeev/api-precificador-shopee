@@ -20,7 +20,7 @@ const API_URL = "[https://api-precificador-shopee-production.up.railway.app/scra
 
     try {
       // Fazendo a chamada real para a sua API de Scraping
-      const response = await axios.post(API_URL, { url: link });
+    const response = await axios.post(API_URL, { url: link }, { timeout: 60000 });
       
       setResultado(response.data);
     } catch (error) {
