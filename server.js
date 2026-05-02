@@ -25,12 +25,15 @@ const browser = await puppeteer.launch({
 
     try {
         const page = await browser.newPage();
-        await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36');
+        await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
         
         await page.goto(url, { waitUntil: 'networkidle2', timeout: 60000 });
 
         // Espera o seletor do preço aparecer na tela da Shopee
-        await page.waitForSelector('.G_m39B', { timeout: 10000 });
+        await page.waitForFunction(
+            () => document.body.innerText.includes('R$'),
+            { timeout: 30000 }
+                );
 
         const dados = await page.evaluate(() => {
             const nome = document.querySelector('.EfBy-A')?.innerText || "Produto não encontrado";
