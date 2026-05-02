@@ -54,4 +54,4 @@ app.post('/scraping-shopee', async (req, res) => {
     }
 });
 
-app.listen(process.env.PORT || 3000, () => console.log("Servidor Online!"));
+app.listen(process.env.PORT || 8081, () => console.log("Servidor Online"));
