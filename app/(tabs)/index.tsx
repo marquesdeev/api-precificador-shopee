@@ -8,7 +8,7 @@ export default function App() {
   const [loading, setLoading] = useState(false);
 
   // --- SUBSTITUA PELA SUA URL DO RAILWAY ---
-const API_URL = "[https://api-precificador-shopee-production.up.railway.app/scraping-shopee](https://api-precificador-shopee-production.up.railway.app/scraping-shopee)";
+const API_URL = "https://api-precificador-shopee-production.up.railway.app/scraping-shopee";
 
   const calcularPrecificacao = async () => {
     if (!link.includes('shopee.com.br')) {
