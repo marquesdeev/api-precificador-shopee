@@ -54,4 +54,4 @@ app.post('/scraping-shopee', async (req, res) => {
     }
 });
 
-app.listen(3000, () => console.log("🚀 Servidor de Scraping Marques Studio'S Online!"));
+app.listen(process.env.PORT || 3000, () => console.log("Servidor Online!"));
