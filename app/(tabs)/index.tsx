@@ -25,7 +25,7 @@ const API_URL = "[https://api-precificador-shopee-production.up.railway.app/scra
       setResultado(response.data);
     } catch (error) {
       console.error(error);
-      Alert.alert("Erro", "Não foi possível calcular. Verifique se o servidor no Railway está online.");
+      Alert.alert("Erro", "Estamos tendo dificuldades para processar o link. Tente novamente mais tarde.");
     } finally {
       setLoading(false);
     }
