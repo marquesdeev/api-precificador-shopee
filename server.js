@@ -12,10 +12,15 @@ app.post('/scraping-shopee', async (req, res) => {
     const { url } = req.body;
     
     // Abrindo o navegador "invisível"
-    const browser = await puppeteer.launch({ 
-        headless: "new", 
-        args: ['--no-sandbox', '--disable-setuid-sandbox'] 
-    });
+const browser = await puppeteer.launch({ 
+    headless: "new", 
+    args: [
+        '--no-sandbox', 
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--single-process'
+    ] 
+});
 
     try {
         const page = await browser.newPage();
